@@ -18,6 +18,7 @@
             align-items: center;
             background-color: transparent; 
         }
+    
         .background-image::after {
         content: '';
         position: absolute;
@@ -279,6 +280,27 @@
     <footer>
         FENG CHIA UNIVERSITY LIBRARY
     </footer>
+    <script>
+    // 簡單的倒數計時 JavaScript
+    let seconds = 600; // 設定 10 分鐘
+    const countdownTarget = document.querySelector('p');
+    
+    // 建立一個顯示倒數的 span
+    const timerSpan = document.createElement('div');
+    timerSpan.style.marginTop = '10px';
+    timerSpan.style.fontSize = '0.9rem';
+    timerSpan.style.color = '#d4af37'; // 燙金字體顏色
+    countdownTarget.appendChild(timerSpan);
 
+    function updateTimer() {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        timerSpan.innerText = `預計恢復時間倒數：${mins}分${secs}秒`;
+        if (seconds > 0) seconds--;
+    }
+    
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
 </body>
 </html>
